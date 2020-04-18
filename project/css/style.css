@@ -695,6 +695,8 @@ ol {
 
 .home-about {
 	background: #151515;
+	align-self: center;
+	text-align: center;
 }
 
 .about-text {
