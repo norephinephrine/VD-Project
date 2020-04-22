@@ -32,6 +32,19 @@
 /* Template default CSS
 /*----------------------------------------*/
 
+
+/*Added styling
+/*----------------------------------------*/
+.hide_error{
+color:red;
+display: none;
+}
+
+.hide_answer{
+color:aqua;
+display: none;
+}
+
 html,
 body {
 	height: 100%;
