@@ -1,5 +1,5 @@
  $(document).ready(function(){
-        $("#checkFields").click(function(){
+        $(".checkFields").click(function(){
             //check username a-z,A-Z,0-9,_
             $(".hide_error").css('display','none');
             $(".hide_answer").css('display','none');
@@ -46,25 +46,30 @@
                     surname:document.getElementById("surname").value,
                     mail:document.getElementById("mail").value,
                     tel:document.getElementById("tel").value,
-                    date:document.getElementById("date").value
+                    date:document.getElementById("date").value,
+                    description:document.getElementById("massage_description").value
                 }
-                localStorage.setItem('massage_data',JSON.stringify(j_obj));
-                
+                localStorage.setItem('massage_data_'+$(this).attr("id").substring(2),JSON.stringify(j_obj));
+            
             }
 
         })
-        $("#downloadForm").click(function(){
-            var obj=localStorage.getItem("massage_data");
+        $(".downloadForm").click(function(){
+            var obj=localStorage.getItem("massage_data_"+$(this).attr("id").substring(2));
             if(obj!=null){
                 var json_obj=JSON.parse(obj);
-               alert(JSON.stringify(json_obj));
                 var doc=new jsPDF();
-                doc.text("Name:"+json_obj["name"], 20, 20);
-                doc.text("Surname:"+json_obj["surname"], 20, 30);
+                doc.text("Ime:"+json_obj["name"], 20, 20);
+                doc.text("Prezime:"+json_obj["surname"], 20, 30);
                 doc.text("Mail:"+json_obj["mail"], 20, 40);
-                doc.text("Telephone:"+json_obj["tel"], 20, 50);
-                doc.text("Requested date:"+json_obj["date"], 20, 60);
-                doc.save('test.pdf')
+                doc.text("Telefon:"+json_obj["tel"], 20, 50);
+                doc.text("Trazeni datum:"+json_obj["date"], 20, 60);
+                doc.text("Opis:\n"+json_obj["description"], 20, 70);
+                doc.save(""+$(this).attr("id").substring(2)+".pdf");
+            }else{
+                var doc=new jsPDF();
+                doc.text("Error no reservation was made", 20, 20);
+                doc.save("error"+".pdf");  
             }
 
         })

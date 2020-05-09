@@ -33,18 +33,29 @@
 /*----------------------------------------*/
 
 
-/*Added styling
+/*My styling
 /*----------------------------------------*/
 .hide_error{
-color:red;
-display: none;
+	color:red;
+	display: none;
+	}
+	
+	.hide_answer{
+	color:aqua;
+	display: none;
+	}
+.color_menu_option{
+	color:yellow !important;
 }
 
-.hide_answer{
-color:aqua;
-display: none;
-}
+.reservation_li{
 
+	font-size: 15px !important;
+	list-style: circle !important;
+	list-style-position: inside !important;
+	text-align: left !important;
+}
+/*----------------------------------------*/	
 html,
 body {
 	height: 100%;
@@ -1990,15 +2001,14 @@ ol {
 
 .gallery-controls ul li {
 	list-style: none;
-	font-size: 16px;
+	font-size: 20px;
 	font-weight: 500;
 	font-family: "Oswald", sans-serif;
 	text-transform: uppercase;
 	color: #ffffff;
-	display: inline-block;
-	margin-right: 45px;
 	cursor: pointer;
 	position: relative;
+	text-align: left;
 }
 
 .gallery-controls ul li.active {

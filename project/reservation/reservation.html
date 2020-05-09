@@ -14,14 +14,14 @@
     <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700&display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="../../css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="../../css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="../../css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="../../css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="../../css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="../../css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="../../css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="../../css/style.css" type="text/css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="../css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="../css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="../css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="../css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="../css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="../css/style.css" type="text/css">
 </head>
 
 <body>
@@ -34,8 +34,8 @@
     <header class="header-section header-normal">
         <div class="container-fluid">
             <div class="logo">
-                <a href="../../index.html">
-                    <img src="../../img/logo.png" alt="">
+                <a href="../index.html">
+                    <img src="../img/logo.png" alt="">
                 </a>
             </div>
             <div class="top-social">
@@ -49,16 +49,16 @@
                 <div class="nav-menu">
                     <nav class="mainmenu mobile-menu">
                         <ul>
-                            <li ><a href="../../index.html">Pocetna</a></li>
-                            <li ><a href="./about-us.html" class="color_menu_option">Usluge</a>
+                            <li ><a href="../index.html">Pocetna</a></li>
+                            <li ><a href="./about-us.html">Usluge</a>
                                 <ul class="dropdown">
                                     <li><a href="./about-us.html">Treninzi</a></li>
-                                    <li><a href="../nutritionist/nutricionist.html">Nutricionista</a></li>
-                                    <li ><a href="./massage.html" class="color_menu_option">Masaza</a></li>
+                                    <li><a href="../service/nutritionist/nutricionist.html">Nutricionista</a></li>
+                                    <li ><a href="../service/massage/massage.html" >Masaza</a></li>
                                 </ul>
                             </li>                                                     
-                            <li><a href="./schedule.html">Zakazivanje treninga</a></li>
-                            <li><a href="./gallery.html">Moj Nalog</a></li>
+                            <li><a href="./reservation.html" class="color_menu_option">Zakazivanje treninga</a></li>
+                            <li><a href="#">Moj Nalog</a></li>
                             <li><a href="./blog.html">O nama</a>
                             </li>                           
                             <li><a href="./blog.html">Jezik</a>
@@ -77,15 +77,15 @@
     <!-- Header End -->
 
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg spad" data-setbg="../../img/about-bread.jpg">
+    <section class="breadcrumb-section set-bg spad" data-setbg="../img/about-bread.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb-text">
                         <h2>Masaže</h2>
                         <div class="breadcrumb-controls">
-                            <a href="../../index.html"><i class="fa fa-home"></i> Home</a>
-                            <span>Usluge-Masaže</span>
+                            <a href="../index.html"><i class="fa fa-home"></i> Home</a>
+                            <span>Rezervacija-treninga</span>
                         </div>
                     </div>
                 </div>
@@ -97,58 +97,86 @@
     <!-- Gallery Section Begin -->
     <section class="gallery-section spad">
         <div class="container">
-            <div class="row gallery-filter">
-                <div class="col-lg-4 col-sm-6 mix  workout">
-                    <div class="gallery-item">
-                        <img src="../../img/service/massage/massage1.jpg" alt="">
-                        <div class="gi-hover-warp">
-                            <div class="gi-hover">
-                                <a href="../../img/service/massage/massage1.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
-                                <a href="./massage1/massage1.html"><i class="fa fa-chain"></i></a>
-                                <h6>Lorem Ipsum <span>dolor sit amet</span></h6>
-                            </div>
-                        </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="gallery-controls">
+                        <ul>
+                            <li class="active" data-filter="*">Cela Galerija</li>
+                            
+                            <li data-filter=".pilates">Pilates</li>
+                            <ul >
+                                <li data-filter=".pilates_pil" class="reservation_li">Pilates</li>
+                                <li data-filter=".zumba" class="reservation_li">Zumba</li>
+                                <li data-filter=".step" class="reservation_li">Step</li>
+                                <li data-filter=".aerobik" class="reservation_li">Aerobik</li>
+                            </ul>
+
+                            <li data-filter=".cardio">Cardio</li>
+                            <ul >
+                                <li data-filter=".classic_cardio" class="reservation_li">Classic Cardio</li>
+                                <li data-filter=".cross_fit" class="reservation_li">Cross-fit</li>
+                            </ul>
+                            <li data-filter=".yoga">Yoga</li>
+                            <li data-filter=".core">Core</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="col-lg-4 col-sm-6 mix  gym">
-                    <div class="gallery-item">
-                        <img  src="../../img/service/massage/massage2.jpg" alt="">
-                        <div class="gi-hover-warp">
-                            <div class="gi-hover">
-                                <a href="../../img/service/massage/massage2.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
-                                <a href="./massage2/massage2.html"><i class="fa fa-chain"></i></a>
-                                <h6>Lorem Ipsum <span>dolor sit amet</span></h6>
+                <div class="col-8">
+                    <div class="row gallery-filter">
+                        <div class="col-lg-4 col-sm-6 mix  workout">
+                            <div class="gallery-item">
+                                <img src="../img/service/massage/massage1.jpg" alt="">
+                                <div class="gi-hover-warp">
+                                    <div class="gi-hover">
+                                        <a href="../img/service/massage/massage1.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
+                                        <a href="./massage1/massage1.html"><i class="fa fa-chain"></i></a>
+                                        <h6>Lorem Ipsum <span>dolor sit amet</span></h6>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6 mix ">
-                    <div class="gallery-item">
-                        <img src="../../img/service/massage/massage3.jpg" alt="">
-                        <div class="gi-hover-warp">
-                            <div class="gi-hover">
-                                <a href="../../img/service/massage/massage3.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
-                                <a href="./massage3/massage3.html"><i class="fa fa-chain"></i></a>
-                                <h6>Lorem Ipsum <span>dolor sit amet</span></h6>
+                        <div class="col-lg-4 col-sm-6 mix  gym">
+                            <div class="gallery-item">
+                                <img  src="../img/service/massage/massage2.jpg" alt="">
+                                <div class="gi-hover-warp">
+                                    <div class="gi-hover">
+                                        <a href="../img/service/massage/massage2.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
+                                        <a href="./massage2/massage2.html"><i class="fa fa-chain"></i></a>
+                                        <h6>Lorem Ipsum <span>dolor sit amet</span></h6>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6 mix gym">
-                    <div class="gallery-item">
-                        <img src="../../img/service/massage/massage4.jpg" alt="">
-                        <div class="gi-hover-warp">
-                            <div class="gi-hover">
-                                <a href="../../img/service/massage/massage4.jpg" class="image-popup"><i
-                                        class="fa fa-search-plus"></i></a>
-                                <a href="./massage4/massage4.html"><i class="fa fa-chain"></i></a>
-                                <h6>Lorem Ipsum <span>dolor sit amet</span></h6>
+                        <div class="col-lg-4 col-sm-6 mix ">
+                            <div class="gallery-item">
+                                <img src="../img/service/massage/massage3.jpg" alt="">
+                                <div class="gi-hover-warp">
+                                    <div class="gi-hover">
+                                        <a href="../img/service/massage/massage3.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
+                                        <a href="./massage3/massage3.html"><i class="fa fa-chain"></i></a>
+                                        <h6>Lorem Ipsum <span>dolor sit amet</span></h6>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        <div class="col-lg-4 col-sm-6 mix gym">
+                            <div class="gallery-item">
+                                <img src="../img/service/massage/massage4.jpg" alt="">
+                                <div class="gi-hover-warp">
+                                    <div class="gi-hover">
+                                        <a href="../img/service/massage/massage4.jpg" class="image-popup"><i
+                                                class="fa fa-search-plus"></i></a>
+                                        <a href="./massage4/massage4.html"><i class="fa fa-chain"></i></a>
+                                        <h6>Lorem Ipsum <span>dolor sit amet</span></h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
-                
             </div>
+
         </div>
     </section>
     <!-- Gallery Section End -->
@@ -176,7 +204,7 @@
                 <div class="col-lg-3">
                     <div class="footer-logo-item">
                         <div class="f-logo">
-                            <a href="#"><img src="../../img/logo.png" alt=""></a>
+                            <a href="#"><img src="../img/logo.png" alt=""></a>
                         </div>
                         <p>Despite growth of the Internet over the past seven years, the use of toll-free phone numbers
                             in television advertising continues.</p>
@@ -266,15 +294,15 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->
-    <script src="../../js/jquery-3.3.1.min.js"></script>
-    <script src="../../js/bootstrap.min.js"></script>
-    <script src="../../js/jquery.magnific-popup.min.js"></script>
-    <script src="../../js/mixitup.min.js"></script>
-    <script src="../../js/jquery.nice-select.min.js"></script>
-    <script src="../../js/jquery.slicknav.js"></script>
-    <script src="../../js/owl.carousel.min.js"></script>
-    <script src="../../js/masonry.pkgd.min.js"></script>
-    <script src="../../js/main.js"></script>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.magnific-popup.min.js"></script>
+    <script src="../js/mixitup.min.js"></script>
+    <script src="../js/jquery.nice-select.min.js"></script>
+    <script src="../js/jquery.slicknav.js"></script>
+    <script src="../js/owl.carousel.min.js"></script>
+    <script src="../js/masonry.pkgd.min.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 
 </html>
