@@ -22,23 +22,15 @@ $(document).ready(function(){
         test=localStorage.getItem("schedule_data");
     }
 
-    var user_data=localStorage.getItem("user_data");
 
-    if(user_data==null){
-        j_obj={
-            reservation:[{id:0,training:"training1"}]
-        }
-        localStorage.setItem("user_data",JSON.stringify(j_obj));
-        user_data=localStorage.getItem("user_data");
-    }
-
-
-    var user_reservations=JSON.parse(user_data);
     var data_j=JSON.parse(test);
      var urlParams = new URLSearchParams(window.location.search);
      var id_sched = urlParams.get('id_sched');
     
     if(id_sched!=null && data_j[id_sched]!=null){
+        $(".breadcrumb-section").attr("data-setbg","../../img/service/massage/massage2.jpg")
+
+
         $("#training_type").html("Nedeljni Raspored "+"<span style='color:red';>"+id_sched+"</span>");
 
         today=new Date();
