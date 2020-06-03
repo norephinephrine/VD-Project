@@ -42,23 +42,28 @@ $(document).ready(function(){
      var data_j=JSON.parse(test);
 
     if(workout!=null && id!=null  && data_j[workout]!=null){
+        $(".breadcrumb-section").css("background-image","url(../../img/service/massage/massage2.jpg)")
+
         $("a[href='./schedule.html']").attr('href', './schedule.html?id_sched='+workout);
 
 
         var found=false;
-        data_j[workout].forEach(element => {
-            
+        for (let index = 0; index < data_j[workout].length; index++) {
+            var element = data_j[workout][index];
             if(element.id==id){
                 found=true;
                 var exists=false;
-                user_reservations["reservation"].forEach(reservation =>{
-                    
-                    if(id==reservation.id){  
+
+
+                for (let j = 0; j <user_reservations["reservation"].length; j++) {
+                    var reservation = user_reservations["reservation"][j];
+                    if( reservation.training==workout && id==reservation.id){  
                         $("#status_reserve").text("Rezervacija već postoji");
                         $("#status_reserve").css("color","yellow");
                         exists=true;
-                    }
-                })
+                        break;
+                    }                  
+                }
                 if(exists==false && element.left!=0){
                     $("#status_reserve").text("Uspešno ste rezervisali termin");    
                     user_reservations["reservation"].push({
@@ -69,19 +74,25 @@ $(document).ready(function(){
                     
 
                     localStorage.setItem("user_data",JSON.stringify(user_reservations));
+                   
                 }
+                else if(exists==false && element.left==0){
+                    $("#status_reserve").text("Nema više mesta");
+                    $("#status_reserve").css("color","red");           
+                }
+                break;             
             }
- 
-         });
-         if(found==false){
+        }
+        if(found==false){
             $("#status_reserve").text("Ne postoji trening sa ovim id-ijem");
             $("#status_reserve").css("color","red");
-         }
-       
-    }else{
+         }     
+    
+    }
+    else{
         $("#status_reserve").text("Došlo je do greške");
         $("#status_reserve").css("color","red");
-    }
+        }
     localStorage.setItem("schedule_data",JSON.stringify(data_j));
 
 });

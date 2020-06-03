@@ -28,7 +28,8 @@ $(document).ready(function(){
      var id_sched = urlParams.get('id_sched');
     
     if(id_sched!=null && data_j[id_sched]!=null){
-        $(".breadcrumb-section").attr("data-setbg","../../img/service/massage/massage2.jpg")
+        
+        $(".breadcrumb-section").css("background-image","url(../../img/service/massage/massage2.jpg)")
 
 
         $("#training_type").html("Nedeljni Raspored "+"<span style='color:red';>"+id_sched+"</span>");
