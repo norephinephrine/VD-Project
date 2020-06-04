@@ -8,16 +8,33 @@ $(document).ready(function(){
      var test=localStorage.getItem("schedule_data");
 
      if(test==null){
-         j_obj={
-             training1:[{"day":0,"time":"16.00-18.00","left":5,id:0},
-             {"day":2,"time":"16.00-18.00","left":20,id:1},
-             {"day":4,"time":"10.00-12.00","left":1,id:2},
-             {"day":0,"time":"13.00-15.00","left":0,id:3}],
-             training2:[{"day":1,"time":"13.00-14.00","left":4,id:0},
-             {"day":1,"time":"14.00-16.00","left":1,id:1},
-             {"day":1,"time":"16.00-18.00","left":0,id:2},
-             {"day":5,"time":"11.00-13.00","left":0,id:3}]
-         }
+        j_obj={
+            crazy_cardio:[{"day":0,"time":"16.00-18.00","left":5,id:0}
+            ,{"day":2,"time":"16.00-18.00","left":20,id:1}
+            ,{"day":4,"time":"10.00-12.00","left":1,id:2}
+            ,{"day":0,"time":"13.00-15.00","left":0,id:3}],
+
+            fat_burning:[{"day":1,"time":"13.00-14.00","left":4,id:0}
+            ,{"day":1,"time":"14.00-16.00","left":1,id:1},
+            {"day":1,"time":"16.00-18.00","left":0,id:2},
+            {"day":5,"time":"11.00-13.00","left":0,id:3}],
+
+            spin_burning:[{"day":0,"time":"16.00-18.00","left":5,id:0},{"day":2,"time":"16.00-18.00","left":20,id:1},{"day":4,"time":"10.00-12.00","left":1,id:2},{"day":0,"time":"13.00-15.00","left":0,id:3}],
+
+            pilates:[{"day":1,"time":"13.00-14.00","left":4,id:0},{"day":1,"time":"14.00-16.00","left":1,id:1},{"day":1,"time":"16.00-18.00","left":0,id:2},{"day":5,"time":"11.00-13.00","left":0,id:3}],
+            aerobik:[{"day":0,"time":"16.00-18.00","left":5,id:0},{"day":2,"time":"16.00-18.00","left":20,id:1},{"day":4,"time":"10.00-12.00","left":1,id:2},{"day":0,"time":"13.00-15.00","left":0,id:3}],
+            zumba:[{"day":1,"time":"13.00-14.00","left":4,id:0},{"day":1,"time":"14.00-16.00","left":1,id:1},{"day":1,"time":"16.00-18.00","left":0,id:2},{"day":5,"time":"11.00-13.00","left":0,id:3}],
+
+            h_yoga:[{"day":0,"time":"16.00-18.00","left":5,id:0},{"day":2,"time":"16.00-18.00","left":20,id:1},{"day":4,"time":"10.00-12.00","left":1,id:2},{"day":0,"time":"13.00-15.00","left":0,id:3}],
+            b_yoga:[{"day":1,"time":"13.00-14.00","left":4,id:0},{"day":1,"time":"14.00-16.00","left":1,id:1},{"day":1,"time":"16.00-18.00","left":0,id:2},{"day":5,"time":"11.00-13.00","left":0,id:3}],
+            meditation:[{"day":0,"time":"16.00-18.00","left":5,id:0},{"day":2,"time":"16.00-18.00","left":20,id:1},{"day":4,"time":"10.00-12.00","left":1,id:2},{"day":0,"time":"13.00-15.00","left":0,id:3}],
+
+            core_gluteus:[{"day":1,"time":"13.00-14.00","left":4,id:0},{"day":1,"time":"14.00-16.00","left":1,id:1},{"day":1,"time":"16.00-18.00","left":0,id:2},{"day":5,"time":"11.00-13.00","left":0,id:3}],
+            core_endurance:[{"day":0,"time":"16.00-18.00","left":5,id:0},{"day":2,"time":"16.00-18.00","left":20,id:1},{"day":4,"time":"10.00-12.00","left":1,id:2},{"day":0,"time":"13.00-15.00","left":0,id:3}],
+            body_pump:[{"day":1,"time":"13.00-14.00","left":4,id:0},{"day":1,"time":"14.00-16.00","left":1,id:1},{"day":1,"time":"16.00-18.00","left":0,id:2},{"day":5,"time":"11.00-13.00","left":0,id:3}],
+
+
+        }
          localStorage.setItem("schedule_data",JSON.stringify(j_obj));
          test=localStorage.getItem("schedule_data");
      }
@@ -27,7 +44,7 @@ $(document).ready(function(){
 
      if(user_data==null){
          j_obj={
-             reservation:[{id:0,training:"training1"}]
+            reservation:[]
          }
          localStorage.setItem("user_data",JSON.stringify(j_obj));
          user_data=localStorage.getItem("user_data");

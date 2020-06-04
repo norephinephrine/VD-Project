@@ -4,7 +4,7 @@ $(document).ready(function(){
 
     if(user_data==null){
         j_obj={
-            reservation:[{id:0,training:"training1"}]
+            reservation:[]
         }
         localStorage.setItem("user_data",JSON.stringify(j_obj));
         user_data=localStorage.getItem("user_data");
@@ -18,16 +18,33 @@ $(document).ready(function(){
      
 
      if(test==null){
-         j_obj={
-             training1:[{"day":0,"time":"16.00-18.00","left":5,id:0},
-             {"day":2,"time":"16.15-18.00","left":20,id:1},
-             {"day":4,"time":"10.00-12.00","left":1,id:2},
-             {"day":0,"time":"13.00-15.00","left":0,id:3}],
-             training2:[{"day":1,"time":"13.00-14.00","left":4,id:0},
-             {"day":1,"time":"14.00-16.00","left":1,id:1},
-             {"day":1,"time":"16.00-18.00","left":0,id:2},
-             {"day":5,"time":"11.00-13.00","left":0,id:3}]
-         }
+        j_obj={
+            crazy_cardio:[{"day":0,"time":"16.00-18.00","left":5,id:0}
+            ,{"day":2,"time":"16.00-18.00","left":20,id:1}
+            ,{"day":4,"time":"10.00-12.00","left":1,id:2}
+            ,{"day":0,"time":"13.00-15.00","left":0,id:3}],
+
+            fat_burning:[{"day":1,"time":"13.00-14.00","left":4,id:0}
+            ,{"day":1,"time":"14.00-16.00","left":1,id:1},
+            {"day":1,"time":"16.00-18.00","left":0,id:2},
+            {"day":5,"time":"11.00-13.00","left":0,id:3}],
+
+            spin_burning:[{"day":0,"time":"16.00-18.00","left":5,id:0},{"day":2,"time":"16.00-18.00","left":20,id:1},{"day":4,"time":"10.00-12.00","left":1,id:2},{"day":0,"time":"13.00-15.00","left":0,id:3}],
+
+            pilates:[{"day":1,"time":"13.00-14.00","left":4,id:0},{"day":1,"time":"14.00-16.00","left":1,id:1},{"day":1,"time":"16.00-18.00","left":0,id:2},{"day":5,"time":"11.00-13.00","left":0,id:3}],
+            aerobik:[{"day":0,"time":"16.00-18.00","left":5,id:0},{"day":2,"time":"16.00-18.00","left":20,id:1},{"day":4,"time":"10.00-12.00","left":1,id:2},{"day":0,"time":"13.00-15.00","left":0,id:3}],
+            zumba:[{"day":1,"time":"13.00-14.00","left":4,id:0},{"day":1,"time":"14.00-16.00","left":1,id:1},{"day":1,"time":"16.00-18.00","left":0,id:2},{"day":5,"time":"11.00-13.00","left":0,id:3}],
+
+            h_yoga:[{"day":0,"time":"16.00-18.00","left":5,id:0},{"day":2,"time":"16.00-18.00","left":20,id:1},{"day":4,"time":"10.00-12.00","left":1,id:2},{"day":0,"time":"13.00-15.00","left":0,id:3}],
+            b_yoga:[{"day":1,"time":"13.00-14.00","left":4,id:0},{"day":1,"time":"14.00-16.00","left":1,id:1},{"day":1,"time":"16.00-18.00","left":0,id:2},{"day":5,"time":"11.00-13.00","left":0,id:3}],
+            meditation:[{"day":0,"time":"16.00-18.00","left":5,id:0},{"day":2,"time":"16.00-18.00","left":20,id:1},{"day":4,"time":"10.00-12.00","left":1,id:2},{"day":0,"time":"13.00-15.00","left":0,id:3}],
+
+            core_gluteus:[{"day":1,"time":"13.00-14.00","left":4,id:0},{"day":1,"time":"14.00-16.00","left":1,id:1},{"day":1,"time":"16.00-18.00","left":0,id:2},{"day":5,"time":"11.00-13.00","left":0,id:3}],
+            core_endurance:[{"day":0,"time":"16.00-18.00","left":5,id:0},{"day":2,"time":"16.00-18.00","left":20,id:1},{"day":4,"time":"10.00-12.00","left":1,id:2},{"day":0,"time":"13.00-15.00","left":0,id:3}],
+            body_pump:[{"day":1,"time":"13.00-14.00","left":4,id:0},{"day":1,"time":"14.00-16.00","left":1,id:1},{"day":1,"time":"16.00-18.00","left":0,id:2},{"day":5,"time":"11.00-13.00","left":0,id:3}],
+
+
+        }
          localStorage.setItem("schedule_data",JSON.stringify(j_obj));
          test=localStorage.getItem("schedule_data");
      }
@@ -36,6 +53,24 @@ $(document).ready(function(){
     var data_j=JSON.parse(test);
     var user_reservations=JSON.parse(user_data);
 
+    var map={};
+    
+    map["crazy_cardio"]="../img/crazyCardio/cardioCover.jpg";
+    map["fat_burning"]="../img/fatBurn/fatCover.jpg";
+    map["spin_burning"]="../img/spinnBurn/spinnBurnCover.jpg";
+
+    map["pilates"]="../img/pilates/PilatesCover.jpeg";
+    map["aerobik"]="../img/aerobic/coverAerobic.jpeg";
+    map["zumba"]="../img/zumba/zumbaCover.jpg";
+
+    map["h_yoga"]="../img/yoga/YogaCover.jpg";
+    map["b_yoga"]="../img/bhakti/bhaktiCover.jpg";
+    map["meditation"]="../img/meditation/MeditationCover.jpg";
+
+    
+    map["core_gluteus"]="../img/CoreAndGluteus/coreCover.jpg";
+    map["core_endurance"]="../img/coreEndurance/coreCover.jpg";
+    map["body_pump"]="../img/bodyPump/pumpCover.jpg";
     var script="";
     var id_next=0;
     user_reservations["reservation"].forEach(element => {
@@ -43,7 +78,7 @@ $(document).ready(function(){
         script+='<div class="row">';
 
         script+='<div class="col-12 col-sm-6 col-md-4">';
-        script+="<img width=100%  height=150px src='../img/home-about.jpg'>"
+        script+="<img width=100%  height=150px src='"+map[element.training]+"'>"
         script+='</div>';
 
         var data;

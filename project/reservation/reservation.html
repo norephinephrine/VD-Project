@@ -24,6 +24,17 @@
     <link rel="stylesheet" href="../css/style.css" type="text/css">
 </head>
 
+<style>
+    .gallery-controls ul li {
+	font-size: 20px;
+    text-align: left;
+    margin-right: 0px;
+    display: list-item!important;
+}
+
+</style>
+
+
 <body>
     <!-- Page Preloder -->
     <div id="preloder">
@@ -107,71 +118,189 @@
                             <ul >
                                 <li data-filter=".pilates_pil" class="reservation_li">Pilates</li>
                                 <li data-filter=".zumba" class="reservation_li">Zumba</li>
-                                <li data-filter=".step" class="reservation_li">Step</li>
                                 <li data-filter=".aerobik" class="reservation_li">Aerobik</li>
                             </ul>
 
                             <li data-filter=".cardio">Cardio</li>
                             <ul >
-                                <li data-filter=".classic_cardio" class="reservation_li">Classic Cardio</li>
-                                <li data-filter=".cross_fit" class="reservation_li">Cross-fit</li>
+                                <li data-filter=".crazy_cardio" class="reservation_li">Crazy Cardio</li>
+                                <li data-filter=".fat_burning" class="reservation_li">Fat burning</li>
+                                <li data-filter=".spin_burning" class="reservation_li">Spin burning</li>
                             </ul>
                             <li data-filter=".yoga">Yoga</li>
+                            <ul>
+                                <li data-filter=".h_yoga" class="reservation_li">Hatha yoga</li>
+                                <li data-filter=".b_yoga" class="reservation_li">BHAKTI YOGA</li>
+                                <li data-filter=".meditation" class="reservation_li">MEDITACIJA</li>
+                            </ul>                           
                             <li data-filter=".core">Core</li>
+                            <ul>
+                                <li data-filter=".core_gluteus" class="reservation_li">CORE & GLUTEUS</li>
+                                <li data-filter=".body_pump" class="reservation_li"> BODY PUMP</li>
+                                <li data-filter=".core_endurance" class="reservation_li">CORE ENDURANCE</li>
+                            </ul>
                         </ul>
                     </div>
                 </div>
                 <div class="col-8">
+                   
                     <div class="row gallery-filter">
-                        <div class="col-lg-4 col-sm-6 mix  workout">
+                         <!-- CARDIO -->
+                        <div class="col-lg-4 col-sm-6 mix cardio crazy_cardio">
                             <div class="gallery-item">
-                                <img src="../img/service/massage/massage1.jpg" alt="">
+                                <img height="160px" src="../img/crazyCardio/cardioCover.jpg" alt="">
                                 <div class="gi-hover-warp">
                                     <div class="gi-hover">
-                                        <a href="../img/service/massage/massage1.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
-                                        <a href="./massage1/massage1.html"><i class="fa fa-chain"></i></a>
-                                        <h6>Lorem Ipsum <span>dolor sit amet</span></h6>
+                                        <a href="../img/crazyCardio/cardioCover.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
+                                        <a href="./schedule/schedule.html?id_sched=crazy_cardio"><i class="fa fa-chain"></i></a>
+                                        <h6>Crazy Cardio <span>Trajanje:2h Težina:5</span></h6>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-sm-6 mix  gym">
+                        <div class="col-lg-4 col-sm-6 mix  cardio fat_burning">
                             <div class="gallery-item">
-                                <img  src="../img/service/massage/massage2.jpg" alt="">
+                                <img   height="160px"  src="../img/fatBurn/fatCover.jpg" alt="">
                                 <div class="gi-hover-warp">
                                     <div class="gi-hover">
-                                        <a href="../img/service/massage/massage2.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
-                                        <a href="./massage2/massage2.html"><i class="fa fa-chain"></i></a>
-                                        <h6>Lorem Ipsum <span>dolor sit amet</span></h6>
+                                        <a href="../img/fatBurn/fatCover.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
+                                        <a href="./schedule/schedule.html?id_sched=fat_burning"><i class="fa fa-chain"></i></a>
+                                        <h6>Fat Burning <span>Trajanje:2h Težina:5</span></h6>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-sm-6 mix ">
+                        <div class="col-lg-4 col-sm-6 mix cardio spin_burning">
                             <div class="gallery-item">
-                                <img src="../img/service/massage/massage3.jpg" alt="">
+                                <img  height="160px" src="../img/spinnBurn/spinnBurnCover.jpg" alt="">
                                 <div class="gi-hover-warp">
                                     <div class="gi-hover">
-                                        <a href="../img/service/massage/massage3.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
-                                        <a href="./massage3/massage3.html"><i class="fa fa-chain"></i></a>
-                                        <h6>Lorem Ipsum <span>dolor sit amet</span></h6>
+                                        <a href="../img/spinnBurn/spinnBurnCover.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
+                                        <a href="./schedule/schedule.html?id_sched=spin_burning"><i class="fa fa-chain"></i></a>
+                                        <h6>Spinn Burning <span>Trajanje:2h Težina:5</span></h6>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-sm-6 mix gym">
+
+                        <!-- PILATES -->
+
+                            <div class="col-lg-4 col-sm-6 mix pilates pilates_pil">
+                                <div class="gallery-item">
+                                    <img height="160px" src="../img/pilates/PilatesCover.jpeg" alt="">
+                                    <div class="gi-hover-warp">
+                                        <div class="gi-hover">
+                                            <a href="../img/pilates/PilatesCover.jpeg" class="image-popup"><i class="fa fa-search-plus"></i></a>
+                                            <a href="./schedule/schedule.html?id_sched=pilates"><i class="fa fa-chain"></i></a>
+                                            <h6>Pilates <span>Trajanje:2h Težina:5</span></h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-6 mix  pilates aerobik">
+                                <div class="gallery-item">
+                                    <img   height="160px"  src="../img/aerobic/coverAerobic.jpeg" alt="">
+                                    <div class="gi-hover-warp">
+                                        <div class="gi-hover">
+                                            <a href="../img/aerobic/coverAerobic.jpeg" class="image-popup"><i class="fa fa-search-plus"></i></a>
+                                            <a href="./schedule/schedule.html?id_sched=aerobik"><i class="fa fa-chain"></i></a>
+                                            <h6>Aerobik <span>Trajanje:2h Težina:5</span></h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-6 mix pilates zumba">
+                                <div class="gallery-item">
+                                    <img  height="160px" src="../img/zumba/zumbaCover.jpg" alt="">
+                                    <div class="gi-hover-warp">
+                                        <div class="gi-hover">
+                                            <a href="../img/zumba/zumbaCover.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
+                                            <a href="./schedule/schedule.html?id_sched=zumba"><i class="fa fa-chain"></i></a>
+                                            <h6>Zumba <span>Trajanje:2h Težina:5</span></h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                         <!-- Yoga -->
+
+                         <div class="col-lg-4 col-sm-6 mix yoga h_yoga">
                             <div class="gallery-item">
-                                <img src="../img/service/massage/massage4.jpg" alt="">
+                                <img height="160px" src="../img/yoga/YogaCover.jpg" alt="">
                                 <div class="gi-hover-warp">
                                     <div class="gi-hover">
-                                        <a href="../img/service/massage/massage4.jpg" class="image-popup"><i
-                                                class="fa fa-search-plus"></i></a>
-                                        <a href="./massage4/massage4.html"><i class="fa fa-chain"></i></a>
-                                        <h6>Lorem Ipsum <span>dolor sit amet</span></h6>
+                                        <a href="../img/yoga/YogaCover.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
+                                        <a href="./schedule/schedule.html?id_sched=h_yoga"><i class="fa fa-chain"></i></a>
+                                        <h6>Hatha Yoga <span>Trajanje:2h Težina:5</span></h6>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="col-lg-4 col-sm-6 mix  yoga b_yoga">
+                            <div class="gallery-item">
+                                <img   height="160px"  src="../img/bhakti/bhaktiCover.jpg" alt="">
+                                <div class="gi-hover-warp">
+                                    <div class="gi-hover">
+                                        <a href="../img/bhakti/bhaktiCover.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
+                                        <a href="./schedule/schedule.html?id_sched=b_yoga"><i class="fa fa-chain"></i></a>
+                                        <h6>Bhakti Yoga <span>Trajanje:2h Težina:5</span></h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-6 mix yoga meditation">
+                            <div class="gallery-item">
+                                <img  height="160px" src="../img/meditation/MeditationCover.jpg" alt="">
+                                <div class="gi-hover-warp">
+                                    <div class="gi-hover">
+                                        <a href="../img/meditation/MeditationCover.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
+                                        <a href="./schedule/schedule.html?id_sched=meditation"><i class="fa fa-chain"></i></a>
+                                        <h6>Meditation <span>Trajanje:2h Težina:5</span></h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                           
+
+
+                          <!-- Core -->
+
+                          <div class="col-lg-4 col-sm-6 mix core core_gluteus">
+                            <div class="gallery-item">
+                                <img height="160px" src="../img/CoreAndGluteus/coreCover.jpg" alt="">
+                                <div class="gi-hover-warp">
+                                    <div class="gi-hover">
+                                        <a href="../img/CoreAndGluteus/coreCover.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
+                                        <a href="./schedule/schedule.html?id_sched=core_gluteus"><i class="fa fa-chain"></i></a>
+                                        <h6>Core & Gluteus <span>Trajanje:2h Težina:5</span></h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-6 mix  core core_endurance">
+                            <div class="gallery-item">
+                                <img   height="160px"  src="../img/coreEndurance/coreCover.jpg" alt="">
+                                <div class="gi-hover-warp">
+                                    <div class="gi-hover">
+                                        <a href="../img/coreEndurance/coreCover.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
+                                        <a href="./schedule/schedule.html?id_sched=core_endurance"><i class="fa fa-chain"></i></a>
+                                        <h6>Core Endurance <span>Trajanje:2h Težina:5</span></h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-6 mix core body_pump">
+                            <div class="gallery-item">
+                                <img  height="160px" src="../img/bodyPump/pumpCover.jpg" alt="">
+                                <div class="gi-hover-warp">
+                                    <div class="gi-hover">
+                                        <a href="../img/bodyPump/pumpCover.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
+                                        <a href="./schedule/schedule.html?id_sched=body_pump"><i class="fa fa-chain"></i></a>
+                                        <h6>Body pump <span>Trajanje:2h Težina:5</span></h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                        
                         
                     </div>
                 </div>

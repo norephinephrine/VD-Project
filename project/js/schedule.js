@@ -6,17 +6,34 @@ $(document).ready(function(){
 
     var test=localStorage.getItem("schedule_data");
 
+    
     if(test==null){
         j_obj={
-            training1:[{"day":0,"time":"16.00-18.00","left":5,id:0}
+            crazy_cardio:[{"day":0,"time":"16.00-18.00","left":5,id:0}
             ,{"day":2,"time":"16.00-18.00","left":20,id:1}
             ,{"day":4,"time":"10.00-12.00","left":1,id:2}
             ,{"day":0,"time":"13.00-15.00","left":0,id:3}],
 
-            training2:[{"day":1,"time":"13.00-14.00","left":4,id:0}
+            fat_burning:[{"day":1,"time":"13.00-14.00","left":4,id:0}
             ,{"day":1,"time":"14.00-16.00","left":1,id:1},
             {"day":1,"time":"16.00-18.00","left":0,id:2},
-            {"day":5,"time":"11.00-13.00","left":0,id:3}]
+            {"day":5,"time":"11.00-13.00","left":0,id:3}],
+
+            spin_burning:[{"day":0,"time":"16.00-18.00","left":5,id:0},{"day":2,"time":"16.00-18.00","left":20,id:1},{"day":4,"time":"10.00-12.00","left":1,id:2},{"day":0,"time":"13.00-15.00","left":0,id:3}],
+
+            pilates:[{"day":1,"time":"13.00-14.00","left":4,id:0},{"day":1,"time":"14.00-16.00","left":1,id:1},{"day":1,"time":"16.00-18.00","left":0,id:2},{"day":5,"time":"11.00-13.00","left":0,id:3}],
+            aerobik:[{"day":0,"time":"16.00-18.00","left":5,id:0},{"day":2,"time":"16.00-18.00","left":20,id:1},{"day":4,"time":"10.00-12.00","left":1,id:2},{"day":0,"time":"13.00-15.00","left":0,id:3}],
+            zumba:[{"day":1,"time":"13.00-14.00","left":4,id:0},{"day":1,"time":"14.00-16.00","left":1,id:1},{"day":1,"time":"16.00-18.00","left":0,id:2},{"day":5,"time":"11.00-13.00","left":0,id:3}],
+
+            h_yoga:[{"day":0,"time":"16.00-18.00","left":5,id:0},{"day":2,"time":"16.00-18.00","left":20,id:1},{"day":4,"time":"10.00-12.00","left":1,id:2},{"day":0,"time":"13.00-15.00","left":0,id:3}],
+            b_yoga:[{"day":1,"time":"13.00-14.00","left":4,id:0},{"day":1,"time":"14.00-16.00","left":1,id:1},{"day":1,"time":"16.00-18.00","left":0,id:2},{"day":5,"time":"11.00-13.00","left":0,id:3}],
+            meditation:[{"day":0,"time":"16.00-18.00","left":5,id:0},{"day":2,"time":"16.00-18.00","left":20,id:1},{"day":4,"time":"10.00-12.00","left":1,id:2},{"day":0,"time":"13.00-15.00","left":0,id:3}],
+
+            core_gluteus:[{"day":1,"time":"13.00-14.00","left":4,id:0},{"day":1,"time":"14.00-16.00","left":1,id:1},{"day":1,"time":"16.00-18.00","left":0,id:2},{"day":5,"time":"11.00-13.00","left":0,id:3}],
+            core_endurance:[{"day":0,"time":"16.00-18.00","left":5,id:0},{"day":2,"time":"16.00-18.00","left":20,id:1},{"day":4,"time":"10.00-12.00","left":1,id:2},{"day":0,"time":"13.00-15.00","left":0,id:3}],
+            body_pump:[{"day":1,"time":"13.00-14.00","left":4,id:0},{"day":1,"time":"14.00-16.00","left":1,id:1},{"day":1,"time":"16.00-18.00","left":0,id:2},{"day":5,"time":"11.00-13.00","left":0,id:3}],
+
+
         }
         localStorage.setItem("schedule_data",JSON.stringify(j_obj));
         test=localStorage.getItem("schedule_data");
@@ -27,9 +44,26 @@ $(document).ready(function(){
      var urlParams = new URLSearchParams(window.location.search);
      var id_sched = urlParams.get('id_sched');
     
+    map={};
+    
+     map["crazy_cardio"]="../../img/crazyCardio/cardioCover.jpg";
+     map["fat_burning"]="../../img/fatBurn/fatCover.jpg";
+     map["spin_burning"]="../../img/spinnBurn/spinnBurnCover.jpg";
+ 
+     map["pilates"]="../../img/pilates/PilatesCover.jpeg";
+     map["aerobik"]="../../img/aerobic/coverAerobic.jpeg";
+     map["zumba"]="../../img/zumba/zumbaCover.jpg";
+ 
+     map["h_yoga"]="../../img/yoga/YogaCover.jpg";
+     map["b_yoga"]="../../img/bhakti/bhaktiCover.jpg";
+     map["meditation"]="../../img/meditation/MeditationCover.jpg";
+ 
+     
+     map["core_gluteus"]="../../img/CoreAndGluteus/coreCover.jpg";
+     map["core_endurance"]="../../img/coreEndurance/coreCover.jpg";
+     map["body_pump"]="../../img/bodyPump/pumpCover.jpg";
     if(id_sched!=null && data_j[id_sched]!=null){
-        
-        $(".breadcrumb-section").css("background-image","url(../../img/service/massage/massage2.jpg)")
+        $(".breadcrumb-section").css("background-image","url("+map[id_sched]+")")
 
 
         $("#training_type").html("Nedeljni Raspored "+"<span style='color:red';>"+id_sched+"</span>");
