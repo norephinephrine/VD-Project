@@ -173,10 +173,29 @@ $(document).ready(function(){
 
     $(".show_button").click(function(){
         var mine_id=$(this).attr("id").substring(4);
-        var id=$("#id"+mine_id).text();
         var training=$("#train"+mine_id).text();
 
-        window.open("#","_self");
+        map["crazy_cardio"]="../crazyCardio.html";
+        map["fat_burning"]="../fatBurning.html";
+        map["spin_burning"]="../spinnBurn.html";
+
+        map["pilates"]="../pilates.html";
+        map["aerobik"]="../aerobic.html";
+        map["zumba"]="../zumba.html";
+    
+        map["h_yoga"]="../hathaYoga.html";
+        map["b_yoga"]="../bhaktiYoga.html";
+        map["meditation"]="../meditacija.html";
+    
+        
+        map["core_gluteus"]="../gluteAndCore.html";
+        map["core_endurance"]="../coreEndurance.html";
+        map["body_pump"]="../bodyPump.html";
+
+
+
+
+        window.open(map[training],"_self");
     })
 
 });
