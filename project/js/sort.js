@@ -25,8 +25,9 @@ if(user_data==null){
 
 
 var my_trainings=JSON.parse(user_data);  
-var training=$("#training_value").val();
-if(training!==""){
+
+if($("#training_value").length){
+    var training=$("#training_value").val();
     for (let index = 0; index < my_trainings[training].length; index++) {
         const element =  my_trainings[training][index];
         if(element.commented==="yes"){
