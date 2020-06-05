@@ -1,5 +1,5 @@
 $(document).ready(function(){
-//MY Reservation
+
     var user_data=localStorage.getItem("user_data");
 
     if(user_data==null){
@@ -113,9 +113,21 @@ $(document).ready(function(){
     var id_next=0;
     var lang="";
     if(window.location.href.includes("/eng/"))lang="_en";
-
+    var tre_text="Trening"
+    var date_text="Datum";
+    var time_text="Vreme";
+    var canc_text="Otkaži";
+    var show_text="Vidi";
+    if(lang==="_en") {
+        tre_text="Workout"; 
+        date_text="Date";
+        time_text="Time";  
+        canc_text="Cancel"   
+        show_text="Show"      
+    }
+    
+//MY Reservation
     user_reservations["reservation"].forEach(element => {
-        
         script+='<div class="row">';
 
         script+='<div class="col-12 col-sm-6 col-md-4">';
@@ -150,13 +162,10 @@ $(document).ready(function(){
 
 
         script+='<div class="col-12 col-sm-6 col-md-8 text-center">';
-        script+="<span style='color:white'>Trening:"+map[element.training]["name"+lang]+"</span><br>";
-        script+="<span hidden id='train"+id_next+"'>"+element.training+"</span>"
-        script+="<span hidden id='id"+id_next+"'>"+element.id+"</span>"
-        script+="<span style='color:white'>Vreme:"+data.time+"</span><br>";
-        script+="<span style='color:white'>Datum:"+today.getDate()+"/"+(today.getMonth()+1)+"/"+today.getFullYear()+"</span><br>";
-        script+="<button id='show"+id_next+"' type='button'class='btn btn-primary show_button'>Vidi</button>&nbsp";
-        script+="<button id='cancel"+id_next+"'"+disabled+"  type='button'class='btn btn-danger cancel_button'>Otkaži</button>";
+        script+="<span style='color:white'>"+time_text+":"+data.time+"</span><br>";
+        script+="<span style='color:white'>"+date_text+":"+today.getDate()+"/"+(today.getMonth()+1)+"/"+today.getFullYear()+"</span><br>";
+        script+="<button id='show"+id_next+"' type='button'class='btn btn-primary show_button'>"+show_text+"</button>&nbsp";
+        script+="<button id='cancel"+id_next+"'"+disabled+"  type='button'class='btn btn-danger cancel_button'>"+canc_text+"</button>";
         script+='</div>'
 
         script+='</div><hr style="height:2px;border-width:0;color:gray;background-color:gray">';
@@ -165,36 +174,108 @@ $(document).ready(function(){
 
     if(script==="")
     {
-        var text="Nema Rezervacije";
-        if(window.location.href.includes("/eng/"))text="No Reservation";      
+        var text="Nema rezervacije";
+        if(window.location.href.includes("/eng/"))text="No reservation";      
         script='<div class="row"> <div class="col-lg-12 text-center">'+"<h4 style='color:white;'>"+text+"</h4>"+'</div></div>';
         $("#my_reservation").append(script);
     }else{
         $("#my_reservation").append(script);
     }
 //MY Reservations End
+var tre_text="Trening"
+var name_text="Ime";
+var surname_text="Prezime";
+var date_text="Datum";
+var time_text="Vreme";
+var canc_text="Otkaži";
+var show_text="Vidi";
+var desc_text="Opis";
+var tel_text="Telefon";
+var massage_text="Masaža"
+if(lang==="_en") {
+    tre_text="Workout"; 
+    date_text="Date";
+    time_text="Time";  
+    canc_text="Cancel"   
+    show_text="Show"  
+    name_text="Name";
+    surname_text="Surname";   
+    tel_text="Telephone"  
+    massage_text="Massage" 
+    desc_text="Description";  
+}
 //MY MASSAGES
 
-var obj=localStorage.getItem("massage_data_massage1");
-if(obj!=null){
-    var json_obj=JSON.parse(obj);
+script="";
+
+for (let index = 1; index < 5; index++) {
+    var obj=localStorage.getItem("massage_data_massage"+index);
+    if(obj!=null){
+    
+        var json_obj=JSON.parse(obj);
+        var path="../img/service/massage/massage"+index+".jpg";
+        if(window.location.href.includes("/eng/"))path="../"+path;
+        script+='<div class="row">';
+        script+='<div class="col-12 col-sm-6 col-md-4">';
+        script+="<img   width='70%' height=150px src='"+path+"'>"
+        script+='</div>';  
+        
+        
+        script+='<div class="col-12 col-sm-6 col-md-8 ">';
+        script+="<span style='color:white'>"+massage_text+":"+json_obj.massage+"</span><br>";
+        script+="<span style='color:white'>"+name_text+":"+json_obj.name+"</span><br>";
+        script+="<span style='color:white'>"+surname_text+":"+json_obj.surname+"</span><br>";
+        script+="<span style='color:white'>E-mail:"+json_obj.mail+"</span><br>";
+        script+="<span style='color:white'>"+date_text+":"+json_obj.date.substring(8)+"/"+json_obj.date.substring(5,7)+"/"+json_obj.date.substring(0,4)+"</span><br>";
+        script+="<span style='color:white'>"+tel_text+":"+json_obj.tel+"</span><br>";
+        script+="<span style='color:white'>"+desc_text+":<br>"+json_obj.description+"</span><br>";
+        script+='</div>'
+        script+='</div><hr style="height:2px;border-width:0;color:gray;background-color:gray">';
+    }
+    
+}
+if(script===""){
+    var text="Nema masaža";
+    if(window.location.href.includes("/eng/"))text="No massages";      
+    script='<div class="row"> <div class="col-lg-12 text-center">'+"<h4 style='color:white;'>"+text+"</h4>"+'</div></div>';
+    $("#my_massage").append(script);    
+}else{
+    $("#my_massage").append(script);  
 }
 //MY MASSAGES End
-
-
-//MY Nutricionist
+//MY Nutricionist Begin
+script="";
 
 var obj=localStorage.getItem("nutricionist_data");
 if(obj!=null){
 
     var json_obj=JSON.parse(obj);
-    var path="";
-    if(window.location.href.includes("/eng/"))path="_en";
+    var path="../img/service/nutricionist/nutricionist.jpg";
+    if(window.location.href.includes("/eng/"))path="../../img/service/nutricionist/nutricionist.jpg";
     script+='<div class="row">';
 
     script+='<div class="col-12 col-sm-6 col-md-4">';
-    script+="<img width=100%  height=150px src='"+map[element.training]["img"+lang]+"'>"
+    script+="<img width=100%  height=150px src='"+path+"'>"
     script+='</div>';   
+
+    script+='<div class="col-12 col-sm-6 col-md-8 ">';
+    script+="<span style='color:white'>"+name_text+":"+json_obj.name+"</span><br>";
+    script+="<span style='color:white'>"+surname_text+":"+json_obj.surname+"</span><br>";
+    script+="<span style='color:white'>E-mail:"+json_obj.mail+"</span><br>";
+    script+="<span style='color:white'>"+date_text+":"+json_obj.date.substring(8)+"/"+json_obj.date.substring(5,7)+"/"+json_obj.date.substring(0,4)+"</span><br>";
+    script+="<span style='color:white'>"+tel_text+":"+json_obj.tel+"</span><br>";
+    script+="<span style='color:white'>"+desc_text+":<br>"+json_obj.description+"</span><br>";
+    script+='</div>'
+    script+='</div>'
+
+    $("#my_nutricionist").append(script);  
+
+
+}else{
+    var text="Nema zahteva";
+    if(window.location.href.includes("/eng/"))text="No request";      
+    script='<div class="row"> <div class="col-lg-12 text-center">'+"<h4 style='color:white;'>"+text+"</h4>"+'</div></div>';
+    $("#my_nutricionist").append(script);    
 }
 //MY Nutricionist End
 

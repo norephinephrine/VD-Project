@@ -39,9 +39,21 @@
                 $("#s_date").css('display','block');
                 succes=false;
             }
+
+            massage_name={
+                massage1:{name:"Relax masaža",name_en:"Relax massage"},
+                massage2:{name:"Masaža lica",name_en:"Face massage"},
+                massage3:{name:"Terapeutska masaža",name_en:"Therapeutic massage"},
+                massage4:{name:"Aromaterapi masaža",name_en:"Aromatherapy massage"}
+            }
+
+            var lang=""
+            if(window.location.href.includes("/eng/"))lang="_en";
+
             if(succes){
                 $(".hide_answer").css('display','block');
                 j_obj={
+                    massage:massage_name[$(this).attr("id").substring(2)]["name"+lang],
                     name:document.getElementById("name").value,
                     surname:document.getElementById("surname").value,
                     mail:document.getElementById("mail").value,
@@ -56,21 +68,42 @@
         })
         $(".downloadForm").click(function(){
             var obj=localStorage.getItem("massage_data_"+$(this).attr("id").substring(2));
-            if(obj!=null){
-                var json_obj=JSON.parse(obj);
-                var doc=new jsPDF();
-                doc.text("Ime:"+json_obj["name"], 20, 20);
-                doc.text("Prezime:"+json_obj["surname"], 20, 30);
-                doc.text("Mail:"+json_obj["mail"], 20, 40);
-                doc.text("Telefon:"+json_obj["tel"], 20, 50);
-                doc.text("Trazeni datum:"+json_obj["date"], 20, 60);
-                doc.text("Opis:\n"+json_obj["description"], 20, 70);
-                doc.save(""+$(this).attr("id").substring(2)+".pdf");
+            if(!window.location.href.includes("/eng/")){
+                if(obj!=null){
+                    var json_obj=JSON.parse(obj);
+                    var doc=new jsPDF();
+                    doc.text("Masaža:"+json_obj["massage"], 20, 20);
+                    doc.text("Ime:"+json_obj["name"], 20, 30);
+                    doc.text("Prezime:"+json_obj["surname"], 20, 40);
+                    doc.text("Mail:"+json_obj["mail"], 20, 50);
+                    doc.text("Telefon:"+json_obj["tel"], 20, 60);
+                    doc.text("Datum:"+json_obj["date"], 20, 70);
+                    doc.text("Opis:\n"+json_obj["description"], 20, 80);
+                    doc.save(""+$(this).attr("id").substring(2)+".pdf");
+                }else{
+                    var doc=new jsPDF();
+                    doc.text("Greška nema rezervacija", 20, 20);
+                    doc.save("error"+".pdf");  
+                }
             }else{
-                var doc=new jsPDF();
-                doc.text("Error no reservation was made", 20, 20);
-                doc.save("error"+".pdf");  
+                if(obj!=null){
+                    var json_obj=JSON.parse(obj);
+                    var doc=new jsPDF();
+                    doc.text("Massage:"+json_obj["massage"], 20, 20);
+                    doc.text("Name:"+json_obj["name"], 20, 30);
+                    doc.text("Surname:"+json_obj["surname"], 20, 40);
+                    doc.text("Mail:"+json_obj["mail"], 20, 50);
+                    doc.text("Telephone:"+json_obj["tel"], 20, 60);
+                    doc.text("Date:"+json_obj["date"], 20, 70);
+                    doc.text("Description:\n"+json_obj["description"], 20, 80);
+                    doc.save(""+$(this).attr("id").substring(2)+".pdf");
+                }else{
+                    var doc=new jsPDF();
+                    doc.text("Error no reservation was made", 20, 20);
+                    doc.save("error"+".pdf");  
+                }               
             }
+
 
         })
     });
