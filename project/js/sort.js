@@ -38,7 +38,12 @@ if($("#training_value").length){
              }
              script+="</div><h4>"+element.text+"</h4>";    
              script+='<div class="author-name"><h5>Anakin Skywaker</h5> <span>Jedi \'Master\'</span> </div>';
-            script+='<div class="author-pic"><img src="img/fun.jpg" alt=""> </div> </div>';
+
+             var logo="img/fun.jpg";
+             if(window.location.href.includes("/eng/"))logo="../img/fun.jpg";
+
+
+            script+='<div class="author-pic"><img src="'+logo+'" alt=""> </div> </div>';
             $(".owl-carousel").append(script);     
         } 
     }   
@@ -121,8 +126,9 @@ $(document).ready(function(){
     $("#diff_sort").click(function()
     {
         var $divs = $("div.mix");
+       
         rez=$divs.sort(function (a, b) {
-            return $(a).find("span.span_diff").text().substring(7)-$(b).find("span.span_diff").text().substring(7);
+            return $(a).find("span.span_diff").text().split(":")[1]-$(b).find("span.span_diff").text().split(":")[1];
         });
         $("#sort_class").append(rez);
     })
@@ -132,11 +138,11 @@ $(document).ready(function(){
         var $divs = $("div.mix");
        
         rez=$divs.sort(function (a, b) {
-            var text=$(a).find("span.span_length").text();
-            var number_a=text.substring(9,text.length-1);
+            var text=$(a).find("span.span_length").text().split(":")[1];
+            var number_a=text.substring(0,text.length-1);
 
-            var text=$(b).find("span.span_length").text();
-            var number_b=text.substring(9,text.length-1); 
+            text=$(b).find("span.span_length").text().split(":")[1];
+            var number_b=text.substring(0,text.length-1); 
 
             return number_a-number_b;
         });
