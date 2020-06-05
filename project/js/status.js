@@ -51,6 +51,63 @@ $(document).ready(function(){
      }
 
 
+     map={
+        crazy_cardio:{
+            img:"../../img/crazyCardio/cardioCover.jpg",name:"Crazy Cardio",
+            img_en:"../../../img/crazyCardio/cardioCover.jpg",name_en:"Crazy Cardio"},
+
+        fat_burning:{
+            img:"../../img/fatBurn/fatCover.jpg",name:"Fat Burn",
+            img_en:"../../../img/fatBurn/fatCover.jpg",name_en:"Fat Burn"},
+
+
+        spin_burning:{
+            img:"../../img/spinnBurn/spinnBurnCover.jpg",name:"Spin Burn",
+            img_en:"../../../img/spinnBurn/spinnBurnCover.jpg",name_en:"Spin Burn"},
+
+        pilates:{
+            img:"../../img/pilates/PilatesCover.jpeg",name:"Pilates",
+            img_en:"../../../img/pilates/PilatesCover.jpeg",name_en:"Pilates"},  
+    
+        aerobik:{
+            img:"../../img/aerobic/coverAerobic.jpeg",name:"Aerobik",
+            img_en:"../../../img/aerobic/coverAerobic.jpeg",name_en:"Aerobic"},
+
+
+        zumba:{
+            img:"../../img/zumba/zumbaCover.jpg",name:"Zumba",
+            img_en:"../../../img/zumba/zumbaCover.jpg",name_en:"Zumba"},
+
+
+
+        h_yoga:{
+            img:"../../img/yoga/YogaCover.jpg",name:"HATHA YOGA",
+            img_en:"../../../img/yoga/YogaCover.jpg",name_en:"HATHA YOGA"},  
+    
+         b_yoga:{
+            img:"../../img/bhakti/bhaktiCover.jpg",name:"BHAKTI YOGA",
+            img_en:"../../../img/bhakti/bhaktiCover.jpg",name_en:"BHAKTI YOGA"},
+
+
+        meditation:{
+            img:"../../img/meditation/MeditationCover.jpg",name:"Meditacija",
+            img_en:"../../../img/meditation/MeditationCover.jpg",name_en:"Meditation"},            
+         
+        core_gluteus:{
+            img:"../../img/CoreAndGluteus/coreCover.jpg",name:"Core & Gluteus",
+            img_en:"../../../img/CoreAndGluteus/coreCover.jpg",name_en:"Core & Gluteus"},  
+    
+        core_endurance:{
+            img:"../../img/coreEndurance/coreCover.jpg",name:"Core Endurance",
+            img_en:"../../../img/coreEndurance/coreCover.jpg",name_en:"Core Endurance"},
+
+
+        body_pump:{
+            img:"../../img/bodyPump/pumpCover.jpg",name:"Body Pump",
+            img_en:"../../../img/bodyPump/pumpCover.jpg",name_en:"Body Pump"}             
+                
+     }
+
 
 
 
@@ -59,8 +116,10 @@ $(document).ready(function(){
      var data_j=JSON.parse(test);
 
     if(workout!=null && id!=null  && data_j[workout]!=null){
-        $(".breadcrumb-section").css("background-image","url(../../img/service/massage/massage2.jpg)")
+        var lang="";
+        if(window.location.href.includes("/eng/"))lang="_en";
 
+        $(".breadcrumb-section").css("background-image","url("+map[workout]["img"+lang]+")")
         $("a[href='./schedule.html']").attr('href', './schedule.html?id_sched='+workout);
 
 
