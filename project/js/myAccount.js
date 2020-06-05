@@ -178,13 +178,25 @@ $(document).ready(function(){
 var obj=localStorage.getItem("massage_data_massage1");
 if(obj!=null){
     var json_obj=JSON.parse(obj);
-    alert(json_obj.description);
 }
 //MY MASSAGES End
 
 
+//MY Nutricionist
 
+var obj=localStorage.getItem("nutricionist_data");
+if(obj!=null){
 
+    var json_obj=JSON.parse(obj);
+    var path="";
+    if(window.location.href.includes("/eng/"))path="_en";
+    script+='<div class="row">';
+
+    script+='<div class="col-12 col-sm-6 col-md-4">';
+    script+="<img width=100%  height=150px src='"+map[element.training]["img"+lang]+"'>"
+    script+='</div>';   
+}
+//MY Nutricionist End
 
 
     $(".cancel_button").click(function(){
