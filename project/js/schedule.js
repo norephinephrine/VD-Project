@@ -160,7 +160,7 @@ $(document).ready(function(){
            var current_time= new Date($.now());
            if(element.left==0 || ( element.day==day && (current_time.getHours()>element.time.substring(0,2) || (current_time.getHours()==element.time.substring(0,2) && current_time.getMinutes()==element.time.substring(3,5) ))))
             disabled="hidden";
-           list_rows[indexes[cur_day]-1].days[cur_day]="<td>"+"<span>"+element.time+"</span>"+"<h6>"+id_sched+"</h6>"+"<span>"+"Ostalo Mesta:"+element.left+"</span>"+'<button type="button" id='+element.id+" "+disabled+' class="btn btn-primary reserve_button">Rezervacija</button>'+"</td>";
+           list_rows[indexes[cur_day]-1].days[cur_day]="<td>"+"<span>"+element.time+"</span>"+"<h6>"+map[id_sched]["name"+lang]+"</h6>"+"<span>"+"Ostalo Mesta:"+element.left+"</span>"+'<button type="button" id='+element.id+" "+disabled+' class="btn btn-primary reserve_button">Rezervacija</button>'+"</td>";
 
         });
 
