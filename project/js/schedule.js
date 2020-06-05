@@ -44,29 +44,83 @@ $(document).ready(function(){
      var urlParams = new URLSearchParams(window.location.search);
      var id_sched = urlParams.get('id_sched');
     
-    map={};
     
-     map["crazy_cardio"]="../../img/crazyCardio/cardioCover.jpg";
-     map["fat_burning"]="../../img/fatBurn/fatCover.jpg";
-     map["spin_burning"]="../../img/spinnBurn/spinnBurnCover.jpg";
+
  
-     map["pilates"]="../../img/pilates/PilatesCover.jpeg";
-     map["aerobik"]="../../img/aerobic/coverAerobic.jpeg";
-     map["zumba"]="../../img/zumba/zumbaCover.jpg";
- 
-     map["h_yoga"]="../../img/yoga/YogaCover.jpg";
-     map["b_yoga"]="../../img/bhakti/bhaktiCover.jpg";
-     map["meditation"]="../../img/meditation/MeditationCover.jpg";
  
      
-     map["core_gluteus"]="../../img/CoreAndGluteus/coreCover.jpg";
-     map["core_endurance"]="../../img/coreEndurance/coreCover.jpg";
-     map["body_pump"]="../../img/bodyPump/pumpCover.jpg";
+
+     
+     map={
+        crazy_cardio:{
+            img:"../../img/crazyCardio/cardioCover.jpg",name:"Crazy Cardio",
+            img_en:"../../../img/crazyCardio/cardioCover.jpg",name_en:"Crazy Cardio"},
+
+        fat_burning:{
+            img:"../../img/fatBurn/fatCover.jpg",name:"Fat Burn",
+            img_en:"../../../img/fatBurn/fatCover.jpg",name_en:"Fat Burn"},
+
+
+        spin_burning:{
+            img:"../../img/spinnBurn/spinnBurnCover.jpg",name:"Spin Burn",
+            img_en:"../../../img/spinnBurn/spinnBurnCover.jpg",name_en:"Spin Burn"},
+
+        pilates:{
+            img:"../../img/pilates/PilatesCover.jpeg",name:"Pilates",
+            img_en:"../../../img/pilates/PilatesCover.jpeg",name_en:"Pilates"},  
+    
+        aerobik:{
+            img:"../../img/aerobic/coverAerobic.jpeg",name:"Aerobik",
+            img_en:"../../../img/aerobic/coverAerobic.jpeg",name_en:"Aerobic"},
+
+
+        zumba:{
+            img:"../../img/zumba/zumbaCover.jpg",name:"Zumba",
+            img_en:"../../../img/zumba/zumbaCover.jpg",name_en:"Zumba"},
+
+
+
+        h_yoga:{
+            img:"../../img/yoga/YogaCover.jpg",name:"HATHA YOGA",
+            img_en:"../../../img/yoga/YogaCover.jpg",name_en:"HATHA YOGA"},  
+    
+         b_yoga:{
+            img:"../../img/bhakti/bhaktiCover.jpg",name:"BHAKTI YOGA",
+            img_en:"../../../img/bhakti/bhaktiCover.jpg",name_en:"BHAKTI YOGA"},
+
+
+        meditation:{
+            img:"../../img/meditation/MeditationCover.jpg",name:"Meditacija",
+            img_en:"../../../img/meditation/MeditationCover.jpg",name_en:"Meditation"},            
+         
+        core_gluteus:{
+            img:"../../img/CoreAndGluteus/coreCover.jpg",name:"Core & Gluteus",
+            img_en:"../../../img/CoreAndGluteus/coreCover.jpg",name_en:"Core & Gluteus"},  
+    
+        core_endurance:{
+            img:"../../img/coreEndurance/coreCover.jpg",name:"Core Endurance",
+            img_en:"../../../img/coreEndurance/coreCover.jpg",name_en:"Core Endurance"},
+
+
+        body_pump:{
+            img:"../../img/bodyPump/pumpCover.jpg",name:"Body Pump",
+            img_en:"../../../img/bodyPump/pumpCover.jpg",name_en:"Body Pump"}             
+                
+     }
+
+
     if(id_sched!=null && data_j[id_sched]!=null){
-        $(".breadcrumb-section").css("background-image","url("+map[id_sched]+")")
+        var lang="";
+        if(window.location.href.includes("/eng/"))lang="_en";
+
+        $(".breadcrumb-section").css("background-image","url("+map[id_sched]["img"+lang]+")");
+
+         $("#training_type").html("Nedeljni Raspored "+"<span style='color:red';>"+map[id_sched]["name"+lang]+"</span>");
 
 
-        $("#training_type").html("Nedeljni Raspored "+"<span style='color:red';>"+id_sched+"</span>");
+
+
+
 
         today=new Date();
         today.setHours(0,0,0,0);

@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+//MY Reservation
     var user_data=localStorage.getItem("user_data");
 
     if(user_data==null){
@@ -53,32 +53,73 @@ $(document).ready(function(){
     var data_j=JSON.parse(test);
     var user_reservations=JSON.parse(user_data);
 
-    var map={};
+    map={
+        crazy_cardio:{
+            img:"../img/crazyCardio/cardioCover.jpg",name:"Crazy Cardio",
+            img_en:"../../img/crazyCardio/cardioCover.jpg",name_en:"Crazy Cardio"},
+
+        fat_burning:{
+            img:"../img/fatBurn/fatCover.jpg",name:"Fat Burn",
+            img_en:"../../img/fatBurn/fatCover.jpg",name_en:"Fat Burn"},
+
+
+        spin_burning:{
+            img:"../img/spinnBurn/spinnBurnCover.jpg",name:"Spin Burn",
+            img_en:"../../img/spinnBurn/spinnBurnCover.jpg",name_en:"Spin Burn"},
+
+        pilates:{
+            img:"../img/pilates/PilatesCover.jpeg",name:"Pilates",
+            img_en:"../../img/pilates/PilatesCover.jpeg",name_en:"Pilates"},  
     
-    map["crazy_cardio"]="../img/crazyCardio/cardioCover.jpg";
-    map["fat_burning"]="../img/fatBurn/fatCover.jpg";
-    map["spin_burning"]="../img/spinnBurn/spinnBurnCover.jpg";
+        aerobik:{
+            img:"../img/aerobic/coverAerobic.jpeg",name:"Aerobik",
+            img_en:"../../img/aerobic/coverAerobic.jpeg",name_en:"Aerobic"},
 
-    map["pilates"]="../img/pilates/PilatesCover.jpeg";
-    map["aerobik"]="../img/aerobic/coverAerobic.jpeg";
-    map["zumba"]="../img/zumba/zumbaCover.jpg";
 
-    map["h_yoga"]="../img/yoga/YogaCover.jpg";
-    map["b_yoga"]="../img/bhakti/bhaktiCover.jpg";
-    map["meditation"]="../img/meditation/MeditationCover.jpg";
+        zumba:{
+            img:"../img/zumba/zumbaCover.jpg",name:"Zumba",
+            img_en:"../../img/zumba/zumbaCover.jpg",name_en:"Zumba"},
 
+
+
+        h_yoga:{
+            img:"../img/yoga/YogaCover.jpg",name:"Hatha Yoga",
+            img_en:"../../img/yoga/YogaCover.jpg",name_en:"Hatha Yoga"},  
     
-    map["core_gluteus"]="../img/CoreAndGluteus/coreCover.jpg";
-    map["core_endurance"]="../img/coreEndurance/coreCover.jpg";
-    map["body_pump"]="../img/bodyPump/pumpCover.jpg";
+         b_yoga:{
+            img:"../img/bhakti/bhaktiCover.jpg",name:"Bhakti Yoga",
+            img_en:"../../img/bhakti/bhaktiCover.jpg",name_en:"Bhakti Yoga"},
+
+
+        meditation:{
+            img:"../img/meditation/MeditationCover.jpg",name:"Meditacija",
+            img_en:"../../img/meditation/MeditationCover.jpg",name_en:"Meditation"},            
+         
+        core_gluteus:{
+            img:"../img/CoreAndGluteus/coreCover.jpg",name:"Core & Gluteus",
+            img_en:"../../img/CoreAndGluteus/coreCover.jpg",name_en:"Core & Gluteus"},  
+    
+        core_endurance:{
+            img:"../img/coreEndurance/coreCover.jpg",name:"Core Endurance",
+            img_en:"../../img/coreEndurance/coreCover.jpg",name_en:"Core Endurance"},
+
+
+        body_pump:{
+            img:"../img/bodyPump/pumpCover.jpg",name:"Body Pump",
+            img_en:"../../img/bodyPump/pumpCover.jpg",name_en:"Body Pump"}             
+                
+     }
     var script="";
     var id_next=0;
+    var lang="";
+    if(window.location.href.includes("/eng/"))lang="_en";
+
     user_reservations["reservation"].forEach(element => {
         
         script+='<div class="row">';
 
         script+='<div class="col-12 col-sm-6 col-md-4">';
-        script+="<img width=100%  height=150px src='"+map[element.training]+"'>"
+        script+="<img width=100%  height=150px src='"+map[element.training]["img"+lang]+"'>"
         script+='</div>';
 
         var data;
@@ -109,7 +150,7 @@ $(document).ready(function(){
 
 
         script+='<div class="col-12 col-sm-6 col-md-8 text-center">';
-        script+="<span style='color:white'>Trening:"+element.training+"</span><br>";
+        script+="<span style='color:white'>Trening:"+map[element.training]["name"+lang]+"</span><br>";
         script+="<span hidden id='train"+id_next+"'>"+element.training+"</span>"
         script+="<span hidden id='id"+id_next+"'>"+element.id+"</span>"
         script+="<span style='color:white'>Vreme:"+data.time+"</span><br>";
@@ -124,11 +165,38 @@ $(document).ready(function(){
 
     if(script==="")
     {
-        script='<div class="row"> <div class="col-lg-12 text-center">'+"<h4 style='color:white;'>NEMA REZERVACIJA</h4>"+'</div></div>';
+        var text="Nema Rezervacije";
+        if(window.location.href.includes("/eng/"))text="No Reservation";      
+        script='<div class="row"> <div class="col-lg-12 text-center">'+"<h4 style='color:white;'>"+text+"</h4>"+'</div></div>';
         $("#my_reservation").append(script);
     }else{
         $("#my_reservation").append(script);
     }
+//MY Reservations End
+//MY MASSAGES
+
+var obj=localStorage.getItem("massage_data_massage1");
+if(obj!=null){
+    var json_obj=JSON.parse(obj);
+}
+//MY MASSAGES End
+
+
+//MY Nutricionist
+
+var obj=localStorage.getItem("nutricionist_data");
+if(obj!=null){
+
+    var json_obj=JSON.parse(obj);
+    var path="";
+    if(window.location.href.includes("/eng/"))path="_en";
+    script+='<div class="row">';
+
+    script+='<div class="col-12 col-sm-6 col-md-4">';
+    script+="<img width=100%  height=150px src='"+map[element.training]["img"+lang]+"'>"
+    script+='</div>';   
+}
+//MY Nutricionist End
 
 
     $(".cancel_button").click(function(){
