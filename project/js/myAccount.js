@@ -113,7 +113,7 @@ $(document).ready(function(){
     var id_next=0;
     var lang="";
     if(window.location.href.includes("/eng/"))lang="_en";
-    var tre_text="Trening"
+    var tre_text="Trening";
     var date_text="Datum";
     var time_text="Vreme";
     var canc_text="Otkaži";
@@ -166,6 +166,9 @@ $(document).ready(function(){
         script+="<span style='color:white'>"+date_text+":"+today.getDate()+"/"+(today.getMonth()+1)+"/"+today.getFullYear()+"</span><br>";
         script+="<button id='show"+id_next+"' type='button'class='btn btn-primary show_button'>"+show_text+"</button>&nbsp";
         script+="<button id='cancel"+id_next+"'"+disabled+"  type='button'class='btn btn-danger cancel_button'>"+canc_text+"</button>";
+
+        script+="<input id='id"+id_next+"' type='text' hidden value='"+data.id+"'>";   
+        script+="<input id='train"+id_next+"' type='text' hidden value='"+element.training+"'>";   
         script+='</div>'
 
         script+='</div><hr style="height:2px;border-width:0;color:gray;background-color:gray">';
@@ -282,9 +285,8 @@ if(obj!=null){
 
     $(".cancel_button").click(function(){
         var mine_id=$(this).attr("id").substring(6);
-        var id=$("#id"+mine_id).text();
-        var training=$("#train"+mine_id).text();
-
+        var id=$("#id"+mine_id).val();
+        var training=$("#train"+mine_id).val();
 
         var test=localStorage.getItem("schedule_data");
         var data_j=JSON.parse(test);
@@ -322,7 +324,7 @@ if(obj!=null){
 
     $(".show_button").click(function(){
         var mine_id=$(this).attr("id").substring(4);
-        var training=$("#train"+mine_id).text();
+        var training=$("#train"+mine_id).val();
 
         map["crazy_cardio"]="../crazyCardio.html";
         map["fat_burning"]="../fatBurning.html";
