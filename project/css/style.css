@@ -69,6 +69,24 @@
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
   }
+  #top_trening_2{
+	background-image: url(../img/treninzi/pump.jpg);	  
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+  }
+  #top_trening_3{
+	background-image: url(../img/treninzi/pump.jpg);	  
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+  } 
+  #mapDiv {
+	height: 500px;
+	 width:100%;
+	 position: relative;
+	 z-index: 1;
+} 
 /*----------------------------------------*/	
 
 /*TEMPLATE STYLING

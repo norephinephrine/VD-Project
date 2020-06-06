@@ -7,11 +7,11 @@
     <meta name="keywords" content="Activitar, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Activitar</title>
+    <title>Aktivator</title>
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700,800,900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700&display=swap" rel="stylesheet">
+    <script src="https://npmcdn.com/leaflet@1.0.0-rc.2/dist/leaflet.js"></script>
+
+    <link rel="stylesheet" href="https://npmcdn.com/leaflet@1.0.0-rc.2/dist/leaflet.css" />
 
     <!-- Css Styles -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
@@ -272,23 +272,20 @@
             </div>
             <div class="row"> 
                 <div class="col-lg-4">
-                    <div id="top_trening_1"class="single-price-plan" style="height: 400px;">
-                        <a id="top_trening_link_1" href="#" class="primary-btn price-btn" style="margin-top: 250px;">Zapocni</a>
+                    
+                    <div id="top_trening_1"class="single-price-plan " style="height: 400px;">
+                        <a id="top_trening_link_1" href="#" class="primary-btn price-btn" style="margin-top: 100px;">Zapocni</a>
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="single-price-plan">
-                        <div id="top_trening_2"class="single-price-plan" style="height: 400px;">
-                            <a id="top_trening_link_2" href="#" class="primary-btn price-btn" style="margin-top: 250px;">Zapocni</a>
+                        <div id="top_trening_2"class="single-price-plan " style="height: 400px;">
+                            <a id="top_trening_link_2" href="#" class="primary-btn price-btn" style="margin-top: 100px;">Zapocni</a>
                         </div>
-                    </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="single-price-plan">
-                        <div id="top_trening_3"class="single-price-plan" style="height: 400px;">
-                            <a id="top_trening_link_3" href="#" class="primary-btn price-btn" style="margin-top: 250px;">Zapocni</a>
+                        <div id="top_trening_3"class="single-price-plan " style="height: 400px;">
+                            <a id="top_trening_link_3" href="#" class="primary-btn price-btn" style="margin-top: 100px;">Zapocni</a>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -376,22 +373,7 @@
     </section>
     <!-- Choseus Section End -->
 
-    <!-- Video Section Begin -->
-    <section class="video-section set-bg" data-setbg="img/video-bg.jpg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="video-text">
-                        <h2>AKTIVATOROM DO VAŠEG CILJA</h2>
-                        <a href="https://www.youtube.com/watch?v=wcWmiJw0UIc" class="play-btn video-popup">
-                            <i class="fa fa-play"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Video Section End -->
+
 
 
     <!-- Cta Section Begin -->
@@ -412,30 +394,46 @@
     <!-- Cta Section End -->
 
     <!-- Map Section Begin -->
-    <div class="map">
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d188618.51311104256!2d-71.236572!3d42.381647!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1576756626784!5m2!1sen!2sbd"
-            height="590" style="border: 0" allowfullscreen=""></iframe>
-        <div class="map-contact-detalis">
-            <div class="open-time">
-                <h5>Weekday:</h5>
-                <ul>
-                    <li>Weekday: <span>06:30 - 11:00</span></li>
-                    <li>Saturday: <span>07:00 - 22:00</span></li>
-                    <li>Sunday: <span>09:00 - 18:00</span></li>
-                </ul>
+    <div class="row">
+        <div class="col-12">
+            <div id="mapDiv"> 
             </div>
-            <div class="map-contact-form">
-                <h5>Contact Us</h5>
-                <form action="#">
-                    <input type="text" placeholder="Name">
-                    <input type="text" class="phone" placeholder="Phone">
-                    <textarea placeholder="Message"></textarea>
-                    <button type="submit" class="site-btn">Submit Now</button>
-                </form>
-            </div>
+            <div class="map-contact-detalis" style="z-index: 100;right: 0px;top:0px;">
+                <div class="open-time">
+                    <h5>Radna vreme:</h5>
+                    <ul>
+                        <li>Radni dan: <span>06:30 - 11:00</span></li>
+                        <li>Subota: <span>07:00 - 22:00</span></li>
+                        <li>Nedelja: <span>09:00 - 18:00</span></li>
+                    </ul>
+                </div>
+            </div>          
         </div>
+        
     </div>
+     
+    
+    
+    <script>
+
+
+        var osmUrl='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+        var osm = new L.TileLayer(osmUrl, {minZoom:1, maxZoom:19});		
+        
+        
+        var map = new L.Map('mapDiv', { doubleClickZoom:true, zoomControl:true, maxBounds:([[90,-270],[-90,270]]) });
+        
+        
+        map.addLayer(osm);
+        var map_set = "osm";
+        map.fitBounds([[0,-180],[0,180]]);
+        
+        map.setView([45.609909, 20.029751], 15);
+        
+        var marker = L.marker([45.609909, 20.029751]).addTo(map);
+        
+        
+        </script>
     <!-- Map Section End -->
 
     <!-- Footer Section Begin -->
@@ -536,6 +534,7 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/masonry.pkgd.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/top_training_index.js"></script>
 </body>
 
 </html>
