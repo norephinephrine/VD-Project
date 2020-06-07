@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
 
     var user_data=localStorage.getItem("user_data");
@@ -162,6 +163,7 @@ $(document).ready(function(){
 
 
         script+='<div class="col-12 col-sm-6 col-md-8 text-center">';
+        script+="<span style='color:white'>"+tre_text+":"+map[element.training]["name"+lang]+"</span><br>";
         script+="<span style='color:white'>"+time_text+":"+data.time+"</span><br>";
         script+="<span style='color:white'>"+date_text+":"+today.getDate()+"/"+(today.getMonth()+1)+"/"+today.getFullYear()+"</span><br>";
         script+="<button id='show"+id_next+"' type='button'class='btn btn-primary show_button'>"+show_text+"</button>&nbsp";
