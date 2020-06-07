@@ -150,6 +150,7 @@ $(document).ready(function(){
      var n=array.length;
      for (let index = 1; index < 4; index++) {
          const element = array[n-(4-index)];
+         
          $("#top_trening_"+index).prepend('<span class="fa fa-star checked"></span>'+"<h5 style='color:yellow'>"+raitings[element.key].avg+"</h5><br>");
          $("#top_trening_"+index).prepend("<h2 style='color:red'>"+map[element.key]["name"+lang]+"</h2><br>");
         
