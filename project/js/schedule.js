@@ -129,7 +129,9 @@ $(document).ready(function(){
         var day_arr=["PONEDELJAK","UTORAK","SREDA","ČETVRTAK","PETAK","SUBOTA","NEDELJA"];
         for (let i = 0; i < 7; i++) {
             script += "<th>";
-            script+=day_arr[(day+i)%7]+"<br>"+today.getDate()+"/"+(today.getMonth()+1)+"/"+today.getFullYear();
+            var ind=(day+i)%7;
+            if(ind==-1)ind=6;
+            script+=day_arr[ind]+"<br>"+today.getDate()+"/"+(today.getMonth()+1)+"/"+today.getFullYear();
             script += "</th>";
             today  = new Date(today.getTime()+86400000);
 
@@ -168,7 +170,9 @@ $(document).ready(function(){
 
             var script="<tr>";
             for (let i = 0; i < 7; i++) {
-                script+=element.days[(i+day)%7];
+                var ind=(i+day)%7;
+                if(ind==-1)ind=6;
+                script+=element.days[ind];
                 
             }
             script+="</tr>";
