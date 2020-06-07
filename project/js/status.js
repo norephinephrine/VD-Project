@@ -115,15 +115,32 @@ $(document).ready(function(){
      var user_reservations=JSON.parse(user_data);
      var data_j=JSON.parse(test);
 
+     var lang="";
+     if(window.location.href.includes("/eng/"))lang="_en";
+     
+     var found=false;
+     var rezerv_text="Rezervacija već postoji";
+     var succ_text="Uspešno ste rezervisali termin";
+     var noSpace_text="Nema više mesta";
+     var noId_text="Ne postoji trening sa ovim id-ijem";
+     var errorText="Došlo je do greške";
+     if(lang!==""){
+         rezerv_text="Booking already exists";
+         succ_text="Succesfully booked";
+         noSpace_text="No open spots left";
+         noId_text="No workout exists with this id";
+         errorText="Error occured";           
+     }
     if(workout!=null && id!=null  && data_j[workout]!=null){
-        var lang="";
-        if(window.location.href.includes("/eng/"))lang="_en";
+
 
         $(".breadcrumb-section").css("background-image","url("+map[workout]["img"+lang]+")")
         $("a[href='./schedule.html']").attr('href', './schedule.html?id_sched='+workout);
 
 
-        var found=false;
+
+
+
         for (let index = 0; index < data_j[workout].length; index++) {
             var element = data_j[workout][index];
             if(element.id==id){
@@ -134,14 +151,14 @@ $(document).ready(function(){
                 for (let j = 0; j <user_reservations["reservation"].length; j++) {
                     var reservation = user_reservations["reservation"][j];
                     if( reservation.training==workout && id==reservation.id){  
-                        $("#status_reserve").text("Rezervacija već postoji");
+                        $("#status_reserve").text(rezerv_text);
                         $("#status_reserve").css("color","yellow");
                         exists=true;
                         break;
                     }                  
                 }
                 if(exists==false && element.left!=0){
-                    $("#status_reserve").text("Uspešno ste rezervisali termin");    
+                    $("#status_reserve").text(succ_text);    
                     user_reservations["reservation"].push({
                         "id":id,
                         "training":workout
@@ -153,20 +170,20 @@ $(document).ready(function(){
                    
                 }
                 else if(exists==false && element.left==0){
-                    $("#status_reserve").text("Nema više mesta");
+                    $("#status_reserve").text(noSpace_text);
                     $("#status_reserve").css("color","red");           
                 }
                 break;             
             }
         }
         if(found==false){
-            $("#status_reserve").text("Ne postoji trening sa ovim id-ijem");
+            $("#status_reserve").text(noId_text);
             $("#status_reserve").css("color","red");
          }     
     
     }
     else{
-        $("#status_reserve").text("Došlo je do greške");
+        $("#status_reserve").text(errorText);
         $("#status_reserve").css("color","red");
         }
     localStorage.setItem("schedule_data",JSON.stringify(data_j));

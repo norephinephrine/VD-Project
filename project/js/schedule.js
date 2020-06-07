@@ -113,9 +113,17 @@ $(document).ready(function(){
         var lang="";
         if(window.location.href.includes("/eng/"))lang="_en";
 
+        var week_text="Nedeljni Raspored ";
+        var left_text="Ostalo Mesta:";
+        var reserve_text="Rezervacija";
+        if(lang!==""){
+            week_text="Weekly Schedule ";
+            left_text="Left spots:";
+            reserve_text="Book";
+        }
         $(".breadcrumb-section").css("background-image","url("+map[id_sched]["img"+lang]+")");
 
-         $("#training_type").html("Nedeljni Raspored "+"<span style='color:red';>"+map[id_sched]["name"+lang]+"</span>");
+         $("#training_type").html(week_text+"<span style='color:red';>"+map[id_sched]["name"+lang]+"</span>");
 
 
 
@@ -126,12 +134,14 @@ $(document).ready(function(){
         today.setHours(0,0,0,0);
         day=today.getDay()-1;
         var script="";
-        var day_arr=["PONEDELJAK","UTORAK","SREDA","ČETVRTAK","PETAK","SUBOTA","NEDELJA"];
+        var day_arr=[{day:"PONEDELJAK",day_en:"monday"},{day:"UTORAK",day_en:"TUESDAY"},
+        {day:"SREDA",day_en:"WEDNESDAY"},{day:"ČETVRTAK",day_en:"THURSDAY"},{day:"PETAK",day_en:"Friday"},
+        {day:"SUBOTA",day_en:"SATURDAY"},{day:"NEDELJA",day_en:"SUNDAY"}];
         for (let i = 0; i < 7; i++) {
             script += "<th>";
             var ind=(day+i)%7;
             if(ind==-1)ind=6;
-            script+=day_arr[ind]+"<br>"+today.getDate()+"/"+(today.getMonth()+1)+"/"+today.getFullYear();
+            script+=day_arr[ind]["day"+lang]+"<br>"+today.getDate()+"/"+(today.getMonth()+1)+"/"+today.getFullYear();
             script += "</th>";
             today  = new Date(today.getTime()+86400000);
 
@@ -162,7 +172,10 @@ $(document).ready(function(){
            var current_time= new Date($.now());
            if(element.left==0 || ( element.day==day && (current_time.getHours()>element.time.substring(0,2) || (current_time.getHours()==element.time.substring(0,2) && current_time.getMinutes()==element.time.substring(3,5) ))))
             disabled="hidden";
-           list_rows[indexes[cur_day]-1].days[cur_day]="<td>"+"<span>"+element.time+"</span>"+"<h6>"+map[id_sched]["name"+lang]+"</h6>"+"<span>"+"Ostalo Mesta:"+element.left+"</span>"+'<button type="button" id='+element.id+" "+disabled+' class="btn btn-primary reserve_button">Rezervacija</button>'+"</td>";
+           list_rows[indexes[cur_day]-1].days[cur_day]="<td>"+"<span>"+element.time+"</span>"+"<h6>"
+           +map[id_sched]["name"+lang]+"</h6>"+"<span>"+left_text+element.left+
+           "</span>"+'<button type="button" id='+element.id+
+           " "+disabled+' class="btn btn-primary reserve_button">'+reserve_text+'</button>'+"</td>";
 
         });
 

@@ -6,8 +6,8 @@ if(user_data==null){
         fat_burning:[{commented:"no"}],
         spin_burning:[{commented:"no"},{commented:"no"}],
 
-        pilates:[{commented:"no"}],
-        aerobik:[{commented:"no"}],
+        pilates:[],
+        aerobik:[],
         zumba:[{commented:"no"}],
 
         h_yoga:[{commented:"no"}],
