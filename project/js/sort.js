@@ -25,9 +25,76 @@ if(user_data==null){
 
 
 var my_trainings=JSON.parse(user_data);  
+var rating=localStorage.getItem("star_rating");
+
+if(rating==null){
+    j_obj={
+        crazy_cardio:{
+        avg:"3.5",
+        number:"4"
+        },
+        fat_burning:{
+            avg:"3.5",
+            number:"4"
+            },
+        spin_burning:{
+            avg:"3.5",
+            number:"4"
+            },
+
+        pilates:{
+            avg:"3.5",
+            number:"4"
+            },
+        aerobik:{
+            avg:"3.5",
+            number:"4"
+            },
+        zumba:{
+            avg:"3.5",
+            number:"4"
+            },
+
+        h_yoga:{
+            avg:"3.5",
+            number:"4"
+            },
+        b_yoga:{
+            avg:"3.5",
+            number:"4"
+            },
+        meditation:{
+            avg:"3.5",
+            number:"4"
+            },
+
+        core_gluteus:{
+            avg:"3.5",
+            number:"4"
+            },
+        core_endurance:{
+            avg:"3.5",
+            number:"4"
+            },
+        body_pump:{
+            avg:"3.5",
+            number:"4"
+            }
+
+    }
+    localStorage.setItem("star_rating",JSON.stringify(j_obj));
+    rating=localStorage.getItem("star_rating");
+}
+var raitings=JSON.parse(rating);  
 
 if($("#training_value").length){
+
+    
+
+
     var training=$("#training_value").val();
+
+    $("#star_avg").text(raitings[training].avg+"/5");
     for (let index = 0; index < my_trainings[training].length; index++) {
         const element =  my_trainings[training][index];
         if(element.commented==="yes"){
@@ -49,66 +116,7 @@ if($("#training_value").length){
     }   
 }
 $(document).ready(function(){
-    var rating=localStorage.getItem("star_rating");
 
-    if(rating==null){
-        j_obj={
-            crazy_cardio:{
-            avg:"3.5",
-            number:"4"
-            },
-            fat_burning:{
-                avg:"3.5",
-                number:"4"
-                },
-            spin_burning:{
-                avg:"3.5",
-                number:"4"
-                },
-
-            pilates:{
-                avg:"3.5",
-                number:"4"
-                },
-            aerobik:{
-                avg:"3.5",
-                number:"4"
-                },
-            zumba:{
-                avg:"3.5",
-                number:"4"
-                },
-
-            h_yoga:{
-                avg:"3.5",
-                number:"4"
-                },
-            b_yoga:{
-                avg:"3.5",
-                number:"4"
-                },
-            meditation:{
-                avg:"3.5",
-                number:"4"
-                },
-
-            core_gluteus:{
-                avg:"3.5",
-                number:"4"
-                },
-            core_endurance:{
-                avg:"3.5",
-                number:"4"
-                },
-            body_pump:{
-                avg:"3.5",
-                number:"4"
-                }
-
-        }
-        localStorage.setItem("star_rating",JSON.stringify(j_obj));
-        rating=localStorage.getItem("star_rating");
-    }
 
 
 
@@ -170,65 +178,6 @@ $(document).ready(function(){
         
 
         var rating=localStorage.getItem("star_rating");
-
-        if(rating==null){
-            j_obj={
-                crazy_cardio:{
-                avg:"3.5",
-                number:"4"
-                },
-                fat_burning:{
-                    avg:"3.5",
-                    number:"4"
-                    },
-                spin_burning:{
-                    avg:"3.5",
-                    number:"4"
-                    },
-
-                pilates:{
-                    avg:"3.5",
-                    number:"4"
-                    },
-                aerobik:{
-                    avg:"3.5",
-                    number:"4"
-                    },
-                zumba:{
-                    avg:"3.5",
-                    number:"4"
-                    },
-
-                h_yoga:{
-                    avg:"3.5",
-                    number:"4"
-                    },
-                b_yoga:{
-                    avg:"3.5",
-                    number:"4"
-                    },
-                meditation:{
-                    avg:"3.5",
-                    number:"4"
-                    },
-
-                core_gluteus:{
-                    avg:"3.5",
-                    number:"4"
-                    },
-                core_endurance:{
-                    avg:"3.5",
-                    number:"4"
-                    },
-                body_pump:{
-                    avg:"3.5",
-                    number:"4"
-                    }
-    
-            }
-            localStorage.setItem("star_rating",JSON.stringify(j_obj));
-            rating=localStorage.getItem("star_rating");
-        }
 
         var my_trainings=JSON.parse(user_data);  
         var raitings=JSON.parse(rating);  
